@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjedu.classFeeManagementSystemBackend.mapper.FeedetailMapper">
+
+    <resultMap id="BaseResultMap" type="com.zjedu.classFeeManagementSystemBackend.model.domain.Feedetail">
+            <id property="detailId" column="detailId" jdbcType="INTEGER"/>
+            <result property="feeId" column="feeId" jdbcType="INTEGER"/>
+            <result property="studentId" column="studentId" jdbcType="VARCHAR"/>
+            <result property="amount" column="amount" jdbcType="FLOAT"/>
+            <result property="tranTime" column="tranTime" jdbcType="TIMESTAMP"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        detailId,feeId,studentId,
+        amount,tranTime,description
+    </sql>
+</mapper>

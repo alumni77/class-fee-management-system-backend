@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjedu.classFeeManagementSystemBackend.mapper.ClassfeeMapper">
+
+    <resultMap id="BaseResultMap" type="com.zjedu.classFeeManagementSystemBackend.model.domain.Classfee">
+            <id property="feeId" column="feeId" jdbcType="INTEGER"/>
+            <result property="classId" column="classId" jdbcType="VARCHAR"/>
+            <result property="subDate" column="subDate" jdbcType="TIMESTAMP"/>
+            <result property="subCount" column="subCount" jdbcType="INTEGER"/>
+            <result property="subAmount" column="subAmount" jdbcType="FLOAT"/>
+            <result property="remainAmount" column="remainAmount" jdbcType="FLOAT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        feeId,classId,subDate,
+        subCount,subAmount,remainAmount
+    </sql>
+    <select id="findLatestRemainingAmount" resultType="java.lang.Double">
+        SELECT remainAmount FROM classfee WHERE classId = #{classId} ORDER BY subDate DESC LIMIT 1
+    </select>
+</mapper>
